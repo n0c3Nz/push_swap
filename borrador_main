@@ -1,0 +1,88 @@
+int	*ordenator(int numbers, int *array, ){
+	int auxiliar[numbers];
+	int k = 0;
+	while (k < numbers)
+	{
+		auxiliar[k] = array[k];
+		k++;
+	}
+	int *ordenado = bubble(auxiliar, numbers);
+	return (ordenado);
+}
+int	main(int argc, char **argv)
+{
+	/*t_stack *stack_a;
+	stack_a = NULL;*/
+	int *array;
+	array = (int *)malloc((argc - 1) * sizeof(int));
+	int auxiliar[argc - 1];
+	int auxiliar2[argc - 1];
+    //auxiliar2 = (int *)malloc((argc - 1) * sizeof(int));*/
+	// Inicializamos los punteros.
+	int j = 0;
+	int k = 0;
+	// Convertimos y almacenamos los argv a int *array.
+	for(int i = 1; i < argc; i++){
+		array[j] = atoi(argv[i]);
+		j++;
+	}
+	// Guardamos el array en un int *auxiliar
+	while (k < argc - 1)
+	{
+		auxiliar[k] = array[k];
+		k++;
+	}
+	k = 0;
+	// Guardamos el array en un int *auxiliar2
+	while (k < argc - 1)
+	{
+		auxiliar2[k] = array[k];
+		k++;
+	}
+	// Utilizamos bubble() para guardar los números en orden
+	int *ordenado = bubble(auxiliar, argc - 1);
+	// Utilizamos sorter() para guardar las posiciones correctas de los números
+	int *simplificado = sorter(auxiliar2, ordenado, argc - 1);
+	int x = 0;
+	// Imprimimos el número, su posición correcta y los números bien ordenados.
+	while (x < argc - 1){
+		printf("Número:\t%d\t", array[x]);
+		printf("Posición:[%d]\tOrdenado:\t(%d)\n", simplificado[x], ordenado[x]);
+		x++;
+	}
+	free(array);
+	return (0);
+}
+
+
+int main(int argc, char **argv)
+{
+    t_stack *stack_a = NULL; // Inicializa stack_a como NULL
+    int *array;
+    int j = 0;
+    array = (int *)malloc((argc - 1) * sizeof(int));
+    for (int i = 1; i < argc; i++)
+    {
+        array[j] = atoi(argv[i]);
+        j++;
+    }
+	int *simplificado = ordenar_array(argc, array);
+    int x = 0;
+	while (x < argc - 1){
+		printf("Posición:[%d]\n", simplificado[x]);
+		x++;
+	}
+    printf("-------\n");
+    x = 0;
+    j = 0;
+    while (x < argc - 1){
+        while (x != simplificado[j])
+            j++;
+        printf("Ordenado: [%d]\n", array[j]);
+        j = 0;
+        x++;
+    }
+    stack_a = create_stack_a(argc - 1, array, stack_a); // Actualiza stack_a
+    ft_print_stack(stack_a);
+    return (0);
+}
