@@ -1,17 +1,22 @@
+NAME = push
+
 CC = gcc
-CFLAGS = -fsanitize=address -g3
-INCLUDE_DIR = ./include
-SRC_FILES = push.c $(INCLUDE_DIR)/utils.c $(INCLUDE_DIR)/utils_2.c $(INCLUDE_DIR)/moves.c
-EXECUTABLE = push
+CFLAGS = -Wall -Wextra -Werror
+LFLAGS = -fsanitize=address -g3
 
-all: $(EXECUTABLE)
+SRC = push.c ./include/utils.c ./include/utils_2.c ./include/moves.c
 
-$(EXECUTABLE): $(SRC_FILES)
-	$(CC) $(CFLAGS) $(SRC_FILES) -o $(EXECUTABLE)
+OBJ = $(SRC:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $(NAME)
 
 clean:
-	rm -f $(EXECUTABLE)
+	rm -f $(OBJ)
 
 fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
