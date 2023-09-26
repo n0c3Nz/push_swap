@@ -15,6 +15,7 @@ typedef struct s_size{
 }t_size;
 /*Array Funcs*/
 int *arrayzer(int size, char **argv);
+int *extract_numbers(t_stack **stack_a);
 /*Stack Funcs*/
 t_stack    *create_stack_a(int size, int *arr, t_stack *stack);
 void	ft_stackadd_node(t_stack **stack, t_stack *new);
@@ -23,8 +24,8 @@ int	pop(t_stack **stack);
 void	ft_print_stack(t_stack *stack);
 void    ft_print_stack_horizontal(t_stack *stack_a, t_stack *stack_b);
 int	is_sorted(t_stack *stack);
-void	sort_3_items(t_stack **stack_a, t_stack **stack_b);
-void	sort3(t_stack **stack_a, t_stack **stack_b);
+void	sort_3_items(t_stack **stack_a);
+void	sort3(t_stack **stack_a);
 void	moves(t_stack **stack_a, t_stack **stack_b, t_size *size);
 /*Movimientos de pila*/
 void	sa(t_stack **stack_a, int ss);

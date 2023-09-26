@@ -6,11 +6,11 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:09:15 by guortun-          #+#    #+#             */
-/*   Updated: 2023/09/26 16:11:53 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:30:45 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //ft_stackadd_node(stack_a, ft_stacknew(5));
 t_stack	*create_stack_a(int size, int *arr, t_stack *stack) //Crear nuevo stack

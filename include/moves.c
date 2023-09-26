@@ -6,11 +6,11 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:07:15 by guortun-          #+#    #+#             */
-/*   Updated: 2023/09/26 16:07:16 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:30:36 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pb(t_stack **stack_a, t_stack **stack_b, t_size *size)
 {
