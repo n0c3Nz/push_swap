@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:07:20 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/02 16:55:27 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:41:56 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,6 @@ void sort3(t_stack **stack_a, int size)
 		find_cases_3(min, max, stack_a);
 	}	
 }
-/*void	sort100(t_stack **stack_a, t_stack **stack_b, t_size *size)
-{
-	ft_print_stack_horizontal((*stack_a), (*stack_b));
-}*/
-
 int pop(t_stack **stack) {
     if (*stack == NULL) {
         printf("La pila está vacía.\n");

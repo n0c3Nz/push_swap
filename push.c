@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:18:24 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/02 16:51:31 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:20:08 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
     //int *simplificado = positioner(array, argc - 1);
 	stack_a = create_stack_a(size.size_a, array, stack_a); // Actualiza stack_a	
 	moves(&stack_a, &stack_b, &size);
-	ft_print_stack_horizontal(stack_a, stack_b);
+	//ft_print_stack_horizontal(stack_a, stack_b);
 //	printf("Peek de la pila A [%d]", peek(stack_a));
     return (0);
 }

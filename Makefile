@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -fsanitize=address -g3
 
-SRC = push.c ./include/utils.c ./include/utils_2.c ./include/utils_3.c ./include/moves.c
+SRC = push.c ./include/utils.c ./include/utils_2.c ./include/utils_3.c ./include/utils_4.c ./include/moves.c
 
 OBJ = $(SRC:.c=.o)
 

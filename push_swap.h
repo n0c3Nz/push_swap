@@ -42,7 +42,8 @@ void	sort5(t_stack **stack_a, t_stack **stack_b, t_size *size);
 void find_cases_5(t_stack **stack_a, t_stack **stack_b, t_size *size);
 /*Ordenar 100 números*/
 //void	sort100(t_stack **stack_a, t_stack **stack_b, t_size *size);
-
+void	radix(t_stack **stack_a, t_stack **stack_b, t_size *size);
+int    max_bits(t_size *size);
 /*Movimientos de pila*/
 void	sa(t_stack **stack_a, int ss);
 void	sb(t_stack **stack_b, int ss);

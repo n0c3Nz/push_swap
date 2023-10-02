@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:44:50 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/02 16:36:21 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:29:25 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	moves(t_stack **stack_a, t_stack **stack_b, t_size *size)
 	    sort3(stack_a, size->size_a);
 	else if(size->size_a == 5)
 		sort5(stack_a, stack_b, size);
-	else if (size->size_a == 100)
-		//sort100(stack_a, stack_b);
-		printf("");
+	else if (size->size_a >= 10)
+		radix(stack_a, stack_b, size);
 }
