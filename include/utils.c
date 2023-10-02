@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:09:15 by guortun-          #+#    #+#             */
-/*   Updated: 2023/09/28 14:49:16 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:52:58 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ t_stack	*create_stack_a(int size, int *arr, t_stack *stack) //Crear nuevo stack
 	free(arr);
 	return (stack);
 }
-void	ft_stackadd_node(t_stack **stack, t_stack *new) //Añadir nuevo nodo
+void ft_stackadd_node(t_stack **stack, t_stack *new)
 {
     if (stack == NULL)
-        return;
-    if (new == NULL)
-        return;
-    new->next = *stack; // El siguiente del nuevo nodo apunta al nodo actual en la cabeza
-    *stack = new; // Actualizamos el puntero de la cabeza para que apunte al nuevo nodo
+        return ;
+    
+    new->next = *stack; // El nuevo nodo apunta al antiguo primer nodo
+    *stack = new; // El puntero al principio de la lista apunta al nuevo nodo
 }
+
 
 t_stack	*ft_stacknew(int content) //Añadir número al nodo
 {
