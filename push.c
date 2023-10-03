@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 19:18:24 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/02 17:20:08 by guortun-         ###   ########.fr       */
+/*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
+/*   Updated: 2023/10/03 21:10:31 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,96 @@ int	*arrayzer(int size, char **argv)
 {
 	int	*array;
 	int	j;
+	int	i;
 
+	i = size;
 	j = 0;
+
 	array = (int *)malloc((size) * sizeof(int));
-	for (int i = size; i > 0; i--) // Cambiamos el bucle para recorrer en orden inverso
+	while (i > 0)
 	{
-		array[j] = atoi(argv[i]);
+		array[j] = ft_atoi(argv[i]);
 		j++;
+		i--;
 	}
 	return (array);
 }
 
-int isEmpty(t_stack *stack) {
-    return stack == NULL;
+int	is_empty(t_stack *stack)
+{
+	return (stack == NULL);
 }
-int peek(t_stack *stack) {
-    if (!isEmpty(stack)) {
-        return stack->content;
-    } else {
-        fprintf(stderr, "La pila está vacía, no se puede hacer peek.\n");
-        exit(EXIT_FAILURE);
-    }
+
+int	peek(t_stack *stack)
+{
+	if (!is_empty(stack))
+	{
+		return (stack->content);
+	}
+	else
+	{
+		fprintf(stderr, "La pila está vacía, no se puede hacer peek.\n");
+		exit(EXIT_FAILURE);
+	}
 }
+int	str_int_limits(char *str)
+{
+	int	pos;
+	int	limit;
+	int	length;
+
+	pos = 0;
+	limit = 0;
+	while (ft_isspace(str[pos]))
+		++pos;
+	if (str[pos] == '+')
+		++pos;
+	else if (str[pos] == '-')
+		limit = ++pos;
+	while (str[pos] == '0')
+		++pos;
+	length = ft_strlen(&str[pos]);
+	if (length == 10)
+	{
+		if ((limit && ft_strncmp(&str[pos], "2147483648", length) > 0)
+			|| (!limit && ft_strncmp(&str[pos], "2147483647", length) > 0))
+			return(1);
+	}
+	else if (length > 10)
+		return(1);
+	return(0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_stack *stack_a = NULL; // Inicializa stack_a como NULL
-	t_size size;
-	t_stack *stack_b = NULL;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	t_size	size;
+	int		*array;
+	int i;
+
+	i = 1;
+	if (!are_all_numbers(argv, argc))
+	{
+		write(1,"Error", 5);
+		exit(1);
+	}
+	stack_b = NULL;
+	stack_a = NULL;
 	size.size_a = argc - 1;
 	size.size_b = 0;
-
-	int *array = arrayzer(argc - 1, argv);
-
-    //int *simplificado = positioner(array, argc - 1);
-	stack_a = create_stack_a(size.size_a, array, stack_a); // Actualiza stack_a	
+	while (i < argc)
+	{
+		if (str_int_limits(argv[i])){
+			write(1,"Error", 5);
+			exit(1);
+		}
+		i++;
+	}
+	array = arrayzer(argc - 1, argv);
+	if (has_duplicates(array, argc))
+		exit(1);
+	stack_a = create_stack_a(size.size_a, array, stack_a);
 	moves(&stack_a, &stack_b, &size);
-	//ft_print_stack_horizontal(stack_a, stack_b);
-//	printf("Peek de la pila A [%d]", peek(stack_a));
-    return (0);
+	return (0);
 }

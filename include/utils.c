@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 16:09:15 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/02 16:52:58 by guortun-         ###   ########.fr       */
+/*   Created: 2023/10/03 20:12:48 by guortun-          #+#    #+#             */
+/*   Updated: 2023/10/03 20:12:49 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../push_swap.h"
 
-//ft_stackadd_node(stack_a, ft_stacknew(5));
-t_stack	*create_stack_a(int size, int *arr, t_stack *stack) //Crear nuevo stack
+t_stack	*create_stack_a(int size, int *arr, t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -26,19 +26,21 @@ t_stack	*create_stack_a(int size, int *arr, t_stack *stack) //Crear nuevo stack
 	free(arr);
 	return (stack);
 }
-void ft_stackadd_node(t_stack **stack, t_stack *new)
+
+void	ft_stackadd_node(t_stack **stack, t_stack *new)
 {
-    if (stack == NULL)
-        return ;
-    
-    new->next = *stack; // El nuevo nodo apunta al antiguo primer nodo
-    *stack = new; // El puntero al principio de la lista apunta al nuevo nodo
+	if (stack == NULL)
+	{
+		write(1, "Error [CREATE STACK]", 20);
+		exit(1);
+	}
+	new->next = *stack;
+	*stack = new;
 }
 
-
-t_stack	*ft_stacknew(int content) //Añadir número al nodo
+t_stack	*ft_stacknew(int content)
 {
-	t_stack *new;
+	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
@@ -48,16 +50,7 @@ t_stack	*ft_stacknew(int content) //Añadir número al nodo
 	return (new);
 }
 
-void	ft_print_stack(t_stack *stack) //Imprimir todos los elementos del stack
-{
-	while (stack)
-	{
-		printf("%d\n", (int)stack->content);
-		stack = stack->next;
-	}
-}
 void	ft_print_stack_horizontal(t_stack *stack_a, t_stack *stack_b)
-	//Imprimir todos los elementos del stack
 {
 	printf("\n--------------\n");
 	printf("A:");
@@ -75,3 +68,26 @@ void	ft_print_stack_horizontal(t_stack *stack_a, t_stack *stack_b)
 	}
 	printf("\n--------------\n");
 }
+
+int has_duplicates(int array[], int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		int j = i + 1;
+		while (j < size)
+		{
+			if (array[i] == array[j])
+			{
+				write(1, "Error\n", 6);
+				return 1; 
+			}
+			j++;
+		}
+		i++;
+	}
+	return 0; 
+}
+
