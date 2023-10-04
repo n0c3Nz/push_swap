@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:46:53 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 20:09:50 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/03 21:32:07 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,40 +64,42 @@ int	get_max_pos(t_stack *stack)
 	return (position);
 }
 
-void find_cases_5(t_stack **stack_a, t_stack **stack_b, t_size *size)
+void	find_cases_5(t_stack **stack_a, t_stack **stack_b, t_size *size)
 {
-    int min_position;
+	int	min_position;
 
-    min_position = get_min_pos((*stack_a));
-
-    if (min_position == 0)
-    {
-        pb(stack_a, stack_b, size);
-    }
-    else if (min_position <= size->size_a / 2)
-    {
-        while (min_position > 0)
-        {
-            ra(stack_a, 0);
-            min_position--;
-        }
-    }
-    else
-    {
-        while (min_position < size->size_a)
-        {
-            rra(stack_a, 0);
-            min_position++;
-        }
-    }
+	min_position = get_min_pos((*stack_a));
+	if (min_position == 0)
+	{
+		pb(stack_a, stack_b, size);
+	}
+	else if (min_position <= size->size_a / 2)
+	{
+		while (min_position > 0)
+		{
+			ra(stack_a, 0);
+			min_position--;
+		}
+	}
+	else
+	{
+		while (min_position < size->size_a)
+		{
+			rra(stack_a, 0);
+			min_position++;
+		}
+	}
 }
 
 void	sort5(t_stack **stack_a, t_stack **stack_b, t_size *size)
 {
-	int a = size->size_a;
+	int	a;
+
+	a = size->size_a;
 	if (!is_sorted((*stack_a)))
 	{
-		while (size->size_b != (a - 3)){
+		while (size->size_b != (a - 3))
+		{
 			find_cases_5(stack_a, stack_b, size);
 		}
 		sort3(stack_a, size->size_a);

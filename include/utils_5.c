@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:49:09 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 20:26:19 by guortun-         ###   ########.fr       */
+/*   Created: 2023/10/04 07:44:23 by guortun-          #+#    #+#             */
+/*   Updated: 2023/10/04 07:49:45 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,28 +88,31 @@ long long	ft_atoi(const char *str)
 	return (num * neg);
 }
 
-bool are_all_numbers(char **argv, int argc) {
-    for (int i = 1; i < argc; i++) {
-        char *arg = argv[i];
-        char *endptr;
-        long num = strtol(arg, &endptr, 10); // Convierte la cadena a un número
+bool	are_all_numbers(char **argv, int argc)
+{
+	int		i;
+	char	*arg;
+	char	*endptr;
+	long	num;
 
-        // Verifica si strtol tuvo éxito y si no hay caracteres adicionales
-        if (*endptr != '\0' || arg == endptr) {
-            return false; // No es un número válido
-        }
-
-        // Verifica si el número es positivo o negativo
-        if (num >= 0) {
-            continue; // Es un número positivo
-        } else {
-            // Si el número es negativo, debe tener un signo '-' al principio
-            if (arg[0] == '-') {
-                continue; // Es un número negativo
-            } else {
-                return false; // No es un número negativo válido
-            }
-        }
-    }
-    return true; // Todas las cadenas son números válidos
+	i = 1;
+	while (i < argc)
+	{
+		arg = argv[i];
+		num = strtol(arg, &endptr, 10);
+		if (*endptr != '\0' || arg == endptr)
+		{
+			return (false);
+		}
+		if (num >= 0)
+			i++;
+		else
+		{
+			if (arg[0] == '-')
+				i++;
+			else
+				return (false);
+		}
+	}
+	return (true);
 }

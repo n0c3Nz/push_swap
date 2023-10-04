@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 21:10:31 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/03 21:19:12 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	*arrayzer(int size, char **argv)
 
 	i = size;
 	j = 0;
-
 	array = (int *)malloc((size) * sizeof(int));
 	while (i > 0)
 	{
@@ -48,6 +47,7 @@ int	peek(t_stack *stack)
 		exit(EXIT_FAILURE);
 	}
 }
+
 int	str_int_limits(char *str)
 {
 	int	pos;
@@ -69,11 +69,11 @@ int	str_int_limits(char *str)
 	{
 		if ((limit && ft_strncmp(&str[pos], "2147483648", length) > 0)
 			|| (!limit && ft_strncmp(&str[pos], "2147483647", length) > 0))
-			return(1);
+			return (1);
 	}
 	else if (length > 10)
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -82,26 +82,18 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 	t_size	size;
 	int		*array;
-	int i;
 
-	i = 1;
 	if (!are_all_numbers(argv, argc))
 	{
-		write(1,"Error", 5);
+		write(1, "Error", 5);
 		exit(1);
 	}
 	stack_b = NULL;
 	stack_a = NULL;
 	size.size_a = argc - 1;
 	size.size_b = 0;
-	while (i < argc)
-	{
-		if (str_int_limits(argv[i])){
-			write(1,"Error", 5);
-			exit(1);
-		}
-		i++;
-	}
+	if (checker(argv))
+		return (1);
 	array = arrayzer(argc - 1, argv);
 	if (has_duplicates(array, argc))
 		exit(1);

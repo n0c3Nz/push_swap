@@ -6,10 +6,9 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:12:48 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 20:12:49 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/04 07:37:12 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../push_swap.h"
 
@@ -69,25 +68,25 @@ void	ft_print_stack_horizontal(t_stack *stack_a, t_stack *stack_b)
 	printf("\n--------------\n");
 }
 
-int has_duplicates(int array[], int size)
+int	has_duplicates(int array[], int size)
 {
-	int i;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size - 1)
 	{
-		int j = i + 1;
+		j = i + 1;
 		while (j < size)
 		{
 			if (array[i] == array[j])
 			{
 				write(1, "Error\n", 6);
-				return 1; 
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
-	return 0; 
+	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:46:26 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 21:00:56 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/04 07:50:25 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			get_max_pos(t_stack *stack);
 void		ft_stackadd_node(t_stack **stack, t_stack *new);
 bool		are_all_numbers(char **argv, int argc);
 int			str_int_limits(char *str);
+int			checker(char **argv);
 t_stack		*create_stack_a(int size, int *arr, t_stack *stack);
 t_stack		*ft_stacknew(int content);
 int			ft_are_all_numbers(char *const argv[], int argc);

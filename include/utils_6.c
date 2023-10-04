@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:49:52 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 21:01:09 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/04 07:42:44 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,25 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	ft_isspace(char c)
 {
-    if (c == ' ' || c == '\v'
-        || c == '\t' || c == '\r' || c == '\n' || c == '\f')
-        return (c);
-    return (0);
+	if (c == ' ' || c == '\v'
+		|| c == '\t' || c == '\r' || c == '\n' || c == '\f')
+		return (c);
+	return (0);
+}
+
+int	checker(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (str_int_limits(argv[i]))
+		{
+			write(1, "Error", 5);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
