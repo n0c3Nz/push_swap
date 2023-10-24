@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 
 	if (!are_all_numbers(argv, argc))
 	{
-		write(1, "Error", 5);
+		write(2, "Error", 5);
 		exit(1);
 	}
 	stack_b = NULL;

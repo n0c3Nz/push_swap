@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:12:48 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/04 07:37:12 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:18:43 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	has_duplicates(int array[], int size)
 		{
 			if (array[i] == array[j])
 			{
-				write(1, "Error\n", 6);
+				write(2, "Error\n", 6);
 				return (1);
 			}
 			j++;
