@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 21:19:12 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/20 08:27:46 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	peek(t_stack *stack)
 	}
 	else
 	{
-		fprintf(stderr, "La pila está vacía, no se puede hacer peek.\n");
+		write(2, "The stack is empty, no peek is possible.\n", 42);
 		exit(EXIT_FAILURE);
 	}
 }
