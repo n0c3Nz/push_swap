@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:47:35 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 17:00:48 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:49:08 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	find_cases_3(int min, int max, t_stack **stack_a)
 		ra(stack_a, 0);
 	else if (max == 0 && min == 2)
 	{
-		rra(stack_a, 0);
-		rra(stack_a, 0);
+		ra(stack_a, 0);
 		sa(stack_a, 0);
 	}
 }
