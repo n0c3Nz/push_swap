@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:46:26 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/04 07:50:25 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:05:14 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			checker(char **argv);
 t_stack		*create_stack_a(int size, int *arr, t_stack *stack);
 t_stack		*ft_stacknew(int content);
 int			ft_are_all_numbers(char *const argv[], int argc);
-int			has_duplicates(int array[], int size);
+bool		has_duplicates(int *array, int size);
 int			peek(t_stack *stack);
 int			is_empty(t_stack *stack);
 int			pop(t_stack **stack);

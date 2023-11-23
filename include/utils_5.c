@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 07:44:23 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/04 07:49:45 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:51:38 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,31 +88,26 @@ long long	ft_atoi(const char *str)
 	return (num * neg);
 }
 
-bool	are_all_numbers(char **argv, int argc)
+bool are_all_numbers(char **argv, int argc)
 {
-	int		i;
-	char	*arg;
-	char	*endptr;
-	long	num;
+	int i;
+	char *arg;
+	char *endptr;
 
 	i = 1;
 	while (i < argc)
 	{
 		arg = argv[i];
-		num = strtol(arg, &endptr, 10);
-		if (*endptr != '\0' || arg == endptr)
+		endptr = arg;
+		while (*endptr != '\0')
 		{
-			return (false);
+			if (*endptr < '0' || *endptr > '9')
+			{
+				return false;
+			}
+			endptr++;
 		}
-		if (num >= 0)
-			i++;
-		else
-		{
-			if (arg[0] == '-')
-				i++;
-			else
-				return (false);
-		}
+		i++;
 	}
-	return (true);
+	return true;
 }

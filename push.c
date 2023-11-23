@@ -6,28 +6,26 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/20 08:27:46 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:12:16 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*arrayzer(int size, char **argv)
+int *arrayzer(int size, char **argv)
 {
-	int	*array;
-	int	j;
-	int	i;
+	int *array;
+	int i = 0;
+	int j = 0;
 
-	i = size;
-	j = 0;
-	array = (int *)malloc((size) * sizeof(int));
-	while (i > 0)
+	array = (int *)malloc(size * sizeof(int));
+	while (j < size)
 	{
-		array[j] = ft_atoi(argv[i]);
+		array[j] = ft_atoi(argv[i + 1]);
 		j++;
-		i--;
+		i++;
 	}
-	return (array);
+	return array;
 }
 
 int	is_empty(t_stack *stack)
@@ -85,7 +83,7 @@ int	main(int argc, char **argv)
 
 	if (!are_all_numbers(argv, argc))
 	{
-		write(2, "Error", 5);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	stack_b = NULL;
@@ -95,7 +93,9 @@ int	main(int argc, char **argv)
 	if (checker(argv))
 		return (1);
 	array = arrayzer(argc - 1, argv);
-	if (has_duplicates(array, argc))
+	for (int i = 0; i < argc - 1; i++)
+		printf("%d\n", array[i]);
+	if (has_duplicates(array, argc) == true)
 		exit(1);
 	stack_a = create_stack_a(size.size_a, array, stack_a);
 	moves(&stack_a, &stack_b, &size);
