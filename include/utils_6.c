@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:49:52 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/24 13:18:29 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:21:56 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	checker(char **argv)
 	{
 		if (str_int_limits(argv[i]))
 		{
-			write(2, "Error", 5);
+			write(2, "Errur\n", 6);
 			return (1);
 		}
 		i++;

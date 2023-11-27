@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:12:48 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/23 12:17:57 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/23 20:15:04 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,25 @@ void	ft_print_stack_horizontal(t_stack *stack_a, t_stack *stack_b)
 	printf("\n--------------\n");
 }
 
-bool has_duplicates(int *array, int size)
+bool	has_duplicates(int *array, int size)
 {
-	int i = 0;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
 	while (i < size - 1)
 	{
-		int j = i + 1;
+		j = i + 1;
 		while (j < size)
 		{
 			if (array[i] == array[j] && array[i] != 0)
 			{
-				return true;
+				return (true);
 			}
 			j++;
 		}
 		i++;
 	}
-	return false;
+	return (false);
 }

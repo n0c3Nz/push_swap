@@ -6,26 +6,34 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/23 12:12:16 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 07:45:04 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *arrayzer(int size, char **argv)
+int	*arrayzer(int size, char **argv, t_size *size_a)
 {
-	int *array;
-	int i = 0;
-	int j = 0;
+	int	*array;
+	int	i;
+	int	j;
 
+	i = size - 1;
+	array = NULL;
+	j = 0;
+	if (size == 1)
+	{
+		array = tokenize_numbers(argv[1], size_a);
+		return (array);
+	}
 	array = (int *)malloc(size * sizeof(int));
-	while (j < size)
+	while (i >= 0)
 	{
 		array[j] = ft_atoi(argv[i + 1]);
 		j++;
-		i++;
+		i--;
 	}
-	return array;
+	return (array);
 }
 
 int	is_empty(t_stack *stack)
@@ -81,7 +89,9 @@ int	main(int argc, char **argv)
 	t_size	size;
 	int		*array;
 
-	if (!are_all_numbers(argv, argc))
+	if (argc == 1)
+		return (0);
+	if (are_all_numbers(argv, argc))
 	{
 		write(2, "Error\n", 6);
 		exit(1);
@@ -90,14 +100,13 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	size.size_a = argc - 1;
 	size.size_b = 0;
-	if (checker(argv))
+	if (argc != 2 && checker(argv))
 		return (1);
-	array = arrayzer(argc - 1, argv);
-	for (int i = 0; i < argc - 1; i++)
-		printf("%d\n", array[i]);
-	if (has_duplicates(array, argc) == true)
+	array = arrayzer(argc - 1, argv, &size);
+	if (has_duplicates(array, size.size_a) == true)
 		exit(1);
 	stack_a = create_stack_a(size.size_a, array, stack_a);
 	moves(&stack_a, &stack_b, &size);
+	ft_print_stack_horizontal(stack_a, stack_b);
 	return (0);
 }

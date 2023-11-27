@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 07:44:23 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/23 11:51:38 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 08:17:40 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,38 +61,32 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 	write(1, "rr\n", 3);
 }
 
-long long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	long long	num;
-	int			neg;
+	size_t	num;
 
 	num = 0;
-	neg = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
+	while (*str == 32 || (*str <= 13 && *str >= 9))
 		str++;
 	if (*str == '+' || *str == '-')
+		str++;
+	if (!(*str >= 48 && *str <= 57))
+		return (0);
+	while (*str >= 48 && *str <= 57)
 	{
-		if (*str == '-')
-			neg *= -1;
+		num = num * 10 + (*str - 48);
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 + (*str - '0');
-		if (num > LONG_MAX && neg == 1)
-			return (LONG_MAX);
-		else if (num < LONG_MIN && neg == -1)
-			return (LONG_MIN);
-		str++;
-	}
-	return (num * neg);
+	if (num > 9223372036854775807 || num > 9223372036854775807)
+		return (-1);
+	return (num);
 }
 
-bool are_all_numbers(char **argv, int argc)
+bool	are_all_numbers(char **argv, int argc)
 {
-	int i;
-	char *arg;
-	char *endptr;
+	int		i;
+	char	*arg;
+	char	*endptr;
 
 	i = 1;
 	while (i < argc)
@@ -101,13 +95,12 @@ bool are_all_numbers(char **argv, int argc)
 		endptr = arg;
 		while (*endptr != '\0')
 		{
-			if (*endptr < '0' || *endptr > '9')
-			{
-				return false;
-			}
+			if (*endptr < '0' || *endptr > '9' || *endptr != ' '
+				|| *endptr != '-' || *endptr != '+')
+				return (false);
 			endptr++;
 		}
 		i++;
 	}
-	return true;
+	return (true);
 }

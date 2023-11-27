@@ -6,11 +6,23 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:44:16 by guortun-          #+#    #+#             */
-/*   Updated: 2023/10/03 11:24:30 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 07:43:26 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	get_max_bits(t_stack **stack_a)
+{
+	int	max;
+	int	max_bits;
+
+	max = get_max(*stack_a);
+	max_bits = 0;
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
+}
 
 void	radix(t_stack **stack_a, t_stack **stack_b, t_size *size)
 {
@@ -23,13 +35,14 @@ void	radix(t_stack **stack_a, t_stack **stack_b, t_size *size)
 		return ;
 	siz = size->size_a;
 	i = -1;
-	while (++i < max_bits(size))
+	while (is_sorted(*stack_a) != 1)
 	{
+		i++;
 		j = -1;
 		while (++j < siz)
 		{
 			num = (*stack_a)->content;
-			if ((num >> i & 1) == 1)
+			if (((num >> i) & 1) == 1)
 				ra(stack_a, 0);
 			else
 				pb(stack_a, stack_b, size);
@@ -37,18 +50,6 @@ void	radix(t_stack **stack_a, t_stack **stack_b, t_size *size)
 		while (size->size_b != 0)
 			pa(stack_a, stack_b, size);
 	}
-}
-
-int	max_bits(t_size *size)
-{
-	int	nbr_bits;
-	int	max;
-
-	nbr_bits = 0;
-	max = size->size_a - 1;
-	while ((max >> nbr_bits) != 0)
-		nbr_bits++;
-	return (nbr_bits);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
