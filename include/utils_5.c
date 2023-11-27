@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 07:44:23 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/27 08:17:40 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:09:02 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (*str - 48);
 		str++;
 	}
-	if (num > 9223372036854775807 || num > 9223372036854775807)
-		return (-1);
+	if (num > 2147483647)
+		error();
 	return (num);
 }
 
@@ -95,10 +95,14 @@ bool	are_all_numbers(char **argv, int argc)
 		endptr = arg;
 		while (*endptr != '\0')
 		{
-			if (*endptr < '0' || *endptr > '9' || *endptr != ' '
-				|| *endptr != '-' || *endptr != '+')
+			if (*endptr >= '0' && *endptr <= '9')
+				endptr++;
+			else if (*endptr == ' ')
+				endptr++;
+			else if (*endptr == '-' || *endptr == '+')
+				endptr++;
+			else
 				return (false);
-			endptr++;
 		}
 		i++;
 	}

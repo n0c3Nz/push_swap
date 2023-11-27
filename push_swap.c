@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/27 08:38:13 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:10:37 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ int	str_int_limits(char *str)
 	length = ft_strlen(&str[pos]);
 	if (length == 10)
 	{
-		if ((limit && ft_strncmp(&str[pos], "2147483648", length) > 0)
-			|| (!limit && ft_strncmp(&str[pos], "2147483647", length) > 0))
+		if (limit && ft_strncmp(&str[pos], "2147483647", length) > 0)
 			return (1);
 	}
 	else if (length > 10)
@@ -91,11 +90,8 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	if (are_all_numbers(argv, argc))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+	if (!are_all_numbers(argv, argc))
+		error();
 	stack_b = NULL;
 	stack_a = NULL;
 	size.size_a = argc - 1;
