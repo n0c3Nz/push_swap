@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/27 09:10:37 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:14:43 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 		return (1);
 	array = arrayzer(argc - 1, argv, &size);
 	if (has_duplicates(array, size.size_a) == true)
-		exit(1);
+		error();
 	stack_a = create_stack_a(size.size_a, array, stack_a);
 	moves(&stack_a, &stack_b, &size);
 	return (0);
