@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:46:26 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/27 08:24:27 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:41:33 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
-# include <string.h>//(QUITAR)
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
