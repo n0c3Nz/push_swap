@@ -6,7 +6,7 @@
 #    By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 13:20:28 by guortun-          #+#    #+#              #
-#    Updated: 2023/11/27 08:24:56 by guortun-         ###   ########.fr        #
+#    Updated: 2023/11/27 08:34:30 by guortun-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 
-SRC = push.c ./include/utils.c ./include/utils_2.c ./include/utils_3.c ./include/utils_4.c ./include/utils_5.c ./include/utils_6.c ./include/utils_7.c ./include/utils_8.c ./include/utils_9.c ./include/moves.c
+SRC = push_swap.c ./include/utils.c ./include/utils_2.c ./include/utils_3.c ./include/utils_4.c ./include/utils_5.c ./include/utils_6.c ./include/utils_7.c ./include/utils_8.c ./include/utils_9.c ./include/moves.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 08:16:16 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/27 08:16:40 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 08:35:29 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void	*ft_realloc(void *ptr, size_t size)
 
 void	error(void)
 {
-	write(2, "Errar\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
