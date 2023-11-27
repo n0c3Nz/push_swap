@@ -6,7 +6,7 @@
 /*   By: guortun- <guortun-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:23:30 by guortun-          #+#    #+#             */
-/*   Updated: 2023/11/27 08:34:55 by guortun-         ###   ########.fr       */
+/*   Updated: 2023/11/27 08:38:13 by guortun-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,5 @@ int	main(int argc, char **argv)
 		exit(1);
 	stack_a = create_stack_a(size.size_a, array, stack_a);
 	moves(&stack_a, &stack_b, &size);
-	ft_print_stack_horizontal(stack_a, stack_b);
 	return (0);
 }
